@@ -1,0 +1,41 @@
+{
+  "original": {
+    "MR-full-R1@0.5": 61.29,
+    "MR-full-R1@0.7": 44.19,
+    "MR-full-mAP": 39.93,
+    "MR-full-mAP@0.5": 61.82,
+    "MR-full-mAP@0.75": 40.22,
+    "HL-min-Fair-mAP": 73.44,
+    "HL-min-Fair-Hit1": 73.68,
+    "HL-min-Good-mAP": 62.65,
+    "HL-min-Good-Hit1": 71.74,
+    "HL-min-VeryGood-mAP": 38.27,
+    "HL-min-VeryGood-Hit1": 60.65
+  },
+  "verb_masked": {
+    "MR-full-R1@0.5": 60.39,
+    "MR-full-R1@0.7": 44.13,
+    "MR-full-mAP": 39.14,
+    "MR-full-mAP@0.5": 61.19,
+    "MR-full-mAP@0.75": 39.1,
+    "HL-min-Fair-mAP": 73.59,
+    "HL-min-Fair-Hit1": 73.74,
+    "HL-min-Good-mAP": 62.77,
+    "HL-min-Good-Hit1": 71.74,
+    "HL-min-VeryGood-mAP": 38.31,
+    "HL-min-VeryGood-Hit1": 61.16
+  },
+  "noun_masked": {
+    "MR-full-R1@0.5": 58.97,
+    "MR-full-R1@0.7": 42.9,
+    "MR-full-mAP": 37.91,
+    "MR-full-mAP@0.5": 59.31,
+    "MR-full-mAP@0.75": 38.44,
+    "HL-min-Fair-mAP": 72.43,
+    "HL-min-Fair-Hit1": 71.48,
+    "HL-min-Good-mAP": 61.73,
+    "HL-min-Good-Hit1": 69.81,
+    "HL-min-VeryGood-mAP": 37.9,
+    "HL-min-VeryGood-Hit1": 59.68
+  }
+}

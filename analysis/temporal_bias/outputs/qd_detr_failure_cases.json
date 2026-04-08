@@ -1,0 +1,142 @@
+[
+  {
+    "qid": 10029,
+    "iou": 0.0,
+    "gt_window": [
+      110,
+      124
+    ],
+    "pred_window": [
+      76.0,
+      94.0
+    ],
+    "duration": 150,
+    "query": "Man wearing sunglasses in interviewed next to a van."
+  },
+  {
+    "qid": 9796,
+    "iou": 0.0,
+    "gt_window": [
+      126,
+      140
+    ],
+    "pred_window": [
+      48.0,
+      62.0
+    ],
+    "duration": 150,
+    "query": "A team of doctors is pulling a patient who is laying on a gurney."
+  },
+  {
+    "qid": 6213,
+    "iou": 0.0,
+    "gt_window": [
+      88,
+      150
+    ],
+    "pred_window": [
+      2.0,
+      38.0
+    ],
+    "duration": 150,
+    "query": "A man in black clothes and wearing a beige hat is talking in front of the camera"
+  },
+  {
+    "qid": 7002,
+    "iou": 0.0,
+    "gt_window": [
+      82,
+      84
+    ],
+    "pred_window": [
+      0.0,
+      22.0
+    ],
+    "duration": 150,
+    "query": "Man stands behind the woman at the table."
+  },
+  {
+    "qid": 3584,
+    "iou": 0.0,
+    "gt_window": [
+      104,
+      118
+    ],
+    "pred_window": [
+      22.0,
+      72.0
+    ],
+    "duration": 150,
+    "query": "Man leans his head out a truck window."
+  },
+  {
+    "qid": 2960,
+    "iou": 0.0,
+    "gt_window": [
+      8,
+      30
+    ],
+    "pred_window": [
+      104.0,
+      120.0
+    ],
+    "duration": 150,
+    "query": "A woman in blue and white striped pants is wiggling her body around doing a dance."
+  },
+  {
+    "qid": 8187,
+    "iou": 0.0,
+    "gt_window": [
+      24,
+      46
+    ],
+    "pred_window": [
+      102.0,
+      126.0
+    ],
+    "duration": 150,
+    "query": "Rams and moose are on the side of the road."
+  },
+  {
+    "qid": 4691,
+    "iou": 0.0,
+    "gt_window": [
+      42,
+      74
+    ],
+    "pred_window": [
+      124.0,
+      150.0
+    ],
+    "duration": 150,
+    "query": "A historical looking city located on an island is coming into view."
+  },
+  {
+    "qid": 8052,
+    "iou": 0.0,
+    "gt_window": [
+      96,
+      118
+    ],
+    "pred_window": [
+      12.0,
+      44.0
+    ],
+    "duration": 150,
+    "query": "Overhead view of the buildings of Zagreb."
+  },
+  {
+    "qid": 1136,
+    "iou": 0.0,
+    "gt_window": [
+      44,
+      48
+    ],
+    "pred_window": [
+      56.0,
+      70.0
+    ],
+    "duration": 150,
+    "query": "Two kids and a man walking and carrying suitcases through a tunnel."
+  }
+]

@@ -1,0 +1,62 @@
+# Large binary data (use HDF5 on SCC)
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.tar.gz
+*.mp4
+*.wav
+
+# Large index/annotation files
+data/qvhighlights/hdf5/*_index.json
+data/qvhighlights/annotations/subs_train.jsonl
+data/qvhighlights/txt_features/
+
+# Lighthouse features (downloaded separately)
+lighthouse/features/
+lighthouse/features_tmp/
+lighthouse/tests/test_videos/
+lighthouse/tests/test_audios/
+lighthouse/tests/weights/
+lighthouse/qvhighlight_features.tar.gz
+
+# Model run-on-video examples
+moment_detr/run_on_video/example/
+moment_detr/run_on_video/moment_detr_ckpt/
+CGDETR/run_on_video/example/
+CGDETR/run_on_video/CLIP_ckpt/
+
+# Checkpoints and logs
+checkpoints/
+artifacts/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Presentation build artifacts
+node_modules/
+package.json
+package-lock.json
+slide-*.jpg

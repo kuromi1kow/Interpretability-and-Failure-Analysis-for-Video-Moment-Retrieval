@@ -1,0 +1,2 @@
+model,features,seed,epochs,batch_size,lr,save_dir,date
+moment_detr,clip,0,200,32,1e-4,checkpoints/moment_detr_clip_seed0_20260405,Sun Apr  5 13:49:47 EDT 2026

@@ -1,0 +1,327 @@
+{
+  "baseline": {
+    "MR-full-R1@0.5": 61.29,
+    "MR-full-R1@0.7": 44.19,
+    "MR-full-mAP": 39.93,
+    "MR-full-mAP@0.5": 61.82,
+    "MR-full-mAP@0.75": 40.22,
+    "HL-min-Fair-mAP": 73.44,
+    "HL-min-Fair-Hit1": 73.68,
+    "HL-min-Good-mAP": 62.65,
+    "HL-min-Good-Hit1": 71.74,
+    "HL-min-VeryGood-mAP": 38.27,
+    "HL-min-VeryGood-Hit1": 60.65
+  },
+  "modules": [
+    {
+      "name": "transformer.t2v_encoder.layers.0.self_attn",
+      "n_heads": 8,
+      "embed_dim": 256
+    },
+    {
+      "name": "transformer.t2v_encoder.layers.1.self_attn",
+      "n_heads": 8,
+      "embed_dim": 256
+    },
+    {
+      "name": "transformer.encoder.layers.0.self_attn",
+      "n_heads": 8,
+      "embed_dim": 256
+    },
+    {
+      "name": "transformer.encoder.layers.1.self_attn",
+      "n_heads": 8,
+      "embed_dim": 256
+    }
+  ],
+  "ablation_results": [
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 0,
+      "R1@0.5": 61.16,
+      "R1@0.7": 45.03,
+      "mAP": 40.05,
+      "delta_R1@0.5": -0.13,
+      "delta_R1@0.7": 0.84
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 1,
+      "R1@0.5": 61.42,
+      "R1@0.7": 44.58,
+      "mAP": 39.8,
+      "delta_R1@0.5": 0.13,
+      "delta_R1@0.7": 0.39
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 2,
+      "R1@0.5": 61.81,
+      "R1@0.7": 45.42,
+      "mAP": 40.15,
+      "delta_R1@0.5": 0.52,
+      "delta_R1@0.7": 1.23
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 3,
+      "R1@0.5": 61.23,
+      "R1@0.7": 44.65,
+      "mAP": 39.96,
+      "delta_R1@0.5": -0.06,
+      "delta_R1@0.7": 0.46
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 4,
+      "R1@0.5": 61.81,
+      "R1@0.7": 44.77,
+      "mAP": 40.2,
+      "delta_R1@0.5": 0.52,
+      "delta_R1@0.7": 0.58
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 5,
+      "R1@0.5": 61.87,
+      "R1@0.7": 45.1,
+      "mAP": 40.07,
+      "delta_R1@0.5": 0.58,
+      "delta_R1@0.7": 0.91
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 6,
+      "R1@0.5": 61.16,
+      "R1@0.7": 44.71,
+      "mAP": 39.82,
+      "delta_R1@0.5": -0.13,
+      "delta_R1@0.7": 0.52
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.0.self_attn",
+      "head": 7,
+      "R1@0.5": 61.42,
+      "R1@0.7": 44.84,
+      "mAP": 40.08,
+      "delta_R1@0.5": 0.13,
+      "delta_R1@0.7": 0.65
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 0,
+      "R1@0.5": 61.74,
+      "R1@0.7": 45.03,
+      "mAP": 39.95,
+      "delta_R1@0.5": 0.45,
+      "delta_R1@0.7": 0.84
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 1,
+      "R1@0.5": 61.48,
+      "R1@0.7": 44.39,
+      "mAP": 39.79,
+      "delta_R1@0.5": 0.19,
+      "delta_R1@0.7": 0.2
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 2,
+      "R1@0.5": 60.9,
+      "R1@0.7": 44.58,
+      "mAP": 39.75,
+      "delta_R1@0.5": -0.39,
+      "delta_R1@0.7": 0.39
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 3,
+      "R1@0.5": 61.23,
+      "R1@0.7": 44.32,
+      "mAP": 39.71,
+      "delta_R1@0.5": -0.06,
+      "delta_R1@0.7": 0.13
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 4,
+      "R1@0.5": 61.81,
+      "R1@0.7": 44.77,
+      "mAP": 39.97,
+      "delta_R1@0.5": 0.52,
+      "delta_R1@0.7": 0.58
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 5,
+      "R1@0.5": 61.35,
+      "R1@0.7": 45.03,
+      "mAP": 39.91,
+      "delta_R1@0.5": 0.06,
+      "delta_R1@0.7": 0.84
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 6,
+      "R1@0.5": 61.23,
+      "R1@0.7": 44.13,
+      "mAP": 39.64,
+      "delta_R1@0.5": -0.06,
+      "delta_R1@0.7": -0.06
+    },
+    {
+      "module": "transformer.t2v_encoder.layers.1.self_attn",
+      "head": 7,
+      "R1@0.5": 61.48,
+      "R1@0.7": 44.58,
+      "mAP": 39.83,
+      "delta_R1@0.5": 0.19,
+      "delta_R1@0.7": 0.39
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 0,
+      "R1@0.5": 61.74,
+      "R1@0.7": 44.39,
+      "mAP": 40.07,
+      "delta_R1@0.5": 0.45,
+      "delta_R1@0.7": 0.2
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 1,
+      "R1@0.5": 60.97,
+      "R1@0.7": 44.84,
+      "mAP": 40.08,
+      "delta_R1@0.5": -0.32,
+      "delta_R1@0.7": 0.65
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 2,
+      "R1@0.5": 61.35,
+      "R1@0.7": 44.77,
+      "mAP": 40.16,
+      "delta_R1@0.5": 0.06,
+      "delta_R1@0.7": 0.58
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 3,
+      "R1@0.5": 60.52,
+      "R1@0.7": 44.52,
+      "mAP": 39.77,
+      "delta_R1@0.5": -0.77,
+      "delta_R1@0.7": 0.33
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 4,
+      "R1@0.5": 61.55,
+      "R1@0.7": 44.97,
+      "mAP": 40.1,
+      "delta_R1@0.5": 0.26,
+      "delta_R1@0.7": 0.78
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 5,
+      "R1@0.5": 61.23,
+      "R1@0.7": 44.58,
+      "mAP": 39.89,
+      "delta_R1@0.5": -0.06,
+      "delta_R1@0.7": 0.39
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 6,
+      "R1@0.5": 61.29,
+      "R1@0.7": 44.26,
+      "mAP": 39.97,
+      "delta_R1@0.5": 0.0,
+      "delta_R1@0.7": 0.07
+    },
+    {
+      "module": "transformer.encoder.layers.0.self_attn",
+      "head": 7,
+      "R1@0.5": 61.81,
+      "R1@0.7": 44.71,
+      "mAP": 40.25,
+      "delta_R1@0.5": 0.52,
+      "delta_R1@0.7": 0.52
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 0,
+      "R1@0.5": 62.26,
+      "R1@0.7": 44.77,
+      "mAP": 39.93,
+      "delta_R1@0.5": 0.97,
+      "delta_R1@0.7": 0.58
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 1,
+      "R1@0.5": 62.06,
+      "R1@0.7": 45.29,
+      "mAP": 40.18,
+      "delta_R1@0.5": 0.77,
+      "delta_R1@0.7": 1.1
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 2,
+      "R1@0.5": 61.48,
+      "R1@0.7": 44.97,
+      "mAP": 39.97,
+      "delta_R1@0.5": 0.19,
+      "delta_R1@0.7": 0.78
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 3,
+      "R1@0.5": 60.97,
+      "R1@0.7": 44.45,
+      "mAP": 39.24,
+      "delta_R1@0.5": -0.32,
+      "delta_R1@0.7": 0.26
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 4,
+      "R1@0.5": 62.26,
+      "R1@0.7": 45.1,
+      "mAP": 40.32,
+      "delta_R1@0.5": 0.97,
+      "delta_R1@0.7": 0.91
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 5,
+      "R1@0.5": 61.35,
+      "R1@0.7": 44.32,
+      "mAP": 39.81,
+      "delta_R1@0.5": 0.06,
+      "delta_R1@0.7": 0.13
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 6,
+      "R1@0.5": 62.06,
+      "R1@0.7": 45.03,
+      "mAP": 40.0,
+      "delta_R1@0.5": 0.77,
+      "delta_R1@0.7": 0.84
+    },
+    {
+      "module": "transformer.encoder.layers.1.self_attn",
+      "head": 7,
+      "R1@0.5": 61.74,
+      "R1@0.7": 44.39,
+      "mAP": 39.8,
+      "delta_R1@0.5": 0.45,
+      "delta_R1@0.7": 0.2
+    }
+  ]
+}

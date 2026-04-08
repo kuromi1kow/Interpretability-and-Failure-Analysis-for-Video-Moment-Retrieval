@@ -1,0 +1,4 @@
+model,MR-full-R1@0.5,MR-full-R1@0.7,MR-full-mAP,MR-full-mAP@0.5,MR-full-mAP@0.75,HL-min-Fair-mAP,HL-min-Fair-Hit1,HL-min-Good-mAP,HL-min-Good-Hit1,HL-min-VeryGood-mAP,HL-min-VeryGood-Hit1
+moment_detr,54.06,36.52,32.8,56.08,31.92,68.18,67.35,58.29,66.0,35.93,55.94
+qd_detr,62.06,45.48,40.56,62.51,40.98,74.14,74.84,63.3,73.23,38.78,62.52
+cg_detr,62.84,46.84,42.0,63.56,43.85,76.05,78.45,64.88,75.87,39.73,64.32

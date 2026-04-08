@@ -1,0 +1,61 @@
+# =============================================================================
+# VMR Project: Default Experiment Configuration
+# Copy this file and modify for each experiment.
+# Usage: python train.py --config configs/default.yaml
+# =============================================================================
+
+# --- Model ---
+model: moment_detr          # moment_detr | qd_detr | cg_detr
+use_lighthouse: true        # Use Lighthouse framework (recommended)
+
+# --- Dataset ---
+dataset: qvhighlights
+data_dir: data/qvhighlights
+annotation_dir: data/qvhighlights/annotations
+feature_dir: data/qvhighlights/features
+
+# --- Features ---
+video_features: clip         # clip | slowfast | clip_slowfast
+text_features: clip          # clip text features
+video_feat_dim: 512          # CLIP=512, SlowFast=2304, concat=2816
+text_feat_dim: 512
+
+# --- Training ---
+epochs: 200
+batch_size: 32
+learning_rate: 1.0e-4
+weight_decay: 1.0e-4
+lr_scheduler: linear_warmup_cosine
+warmup_epochs: 10
+gradient_clip: 0.1
+seed: 0
+
+# --- Model Architecture ---
+hidden_dim: 256
+num_heads: 8
+num_encoder_layers: 2
+num_decoder_layers: 2
+num_queries: 10              # Number of moment proposals
+dropout: 0.1
+
+# --- Loss ---
+loss_span_coef: 10.0
+loss_giou_coef: 1.0
+loss_label_coef: 4.0
+loss_saliency_coef: 1.0
+
+# --- Evaluation ---
+eval_iou_thresholds: [0.3, 0.5, 0.7]
+eval_every: 5                # Evaluate every N epochs
+save_best_metric: R1@0.5     # Metric for best checkpoint selection
+
+# --- Logging ---
+log_dir: logs
+save_dir: checkpoints
+use_tensorboard: true
+log_every: 50                # Log training loss every N steps
+
+# --- System ---
+num_workers: 4
+pin_memory: true
+device: cuda

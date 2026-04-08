@@ -1,0 +1,21 @@
+{
+  "center_baseline": {
+    "description": "predict center 30% of video [0.35*dur, 0.65*dur]",
+    "R1@0.3": 31.55,
+    "R1@0.5": 8.65,
+    "R1@0.7": 2.97,
+    "mean_iou": 0.1833
+  },
+  "train_distribution_baseline": {
+    "description": "predict mean train window [0.417, 0.584] * duration",
+    "R1@0.3": 19.81,
+    "R1@0.5": 8.26,
+    "R1@0.7": 2.19,
+    "mean_iou": 0.1454
+  },
+  "random_baseline": {
+    "description": "random [a,b] in [0, duration], 100 trials",
+    "R1@0.5_mean": 8.89,
+    "R1@0.5_std": 0.73
+  }
+}

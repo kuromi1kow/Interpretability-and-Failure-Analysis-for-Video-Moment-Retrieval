@@ -1,0 +1,41 @@
+{
+  "train": {
+    "count": 7218,
+    "vid_dur_mean": 149.54835134386258,
+    "vid_dur_std": 2.9605240885781114,
+    "vid_dur_min": 120,
+    "vid_dur_max": 150,
+    "query_len_mean": 10.46231643114436,
+    "moment_dur_mean": 25.083652268999455,
+    "moment_dur_std": 29.763326639063653,
+    "moment_center_mean": 0.5004740935449807,
+    "moment_center_std": 0.2796816053255096,
+    "n_moments": 12803
+  },
+  "val": {
+    "count": 1550,
+    "vid_dur_mean": 149.6167741935484,
+    "vid_dur_std": 2.6426238025709736,
+    "vid_dur_min": 120,
+    "vid_dur_max": 150,
+    "query_len_mean": 10.492903225806451,
+    "moment_dur_mean": 23.224402425972173,
+    "moment_dur_std": 27.831188348809473,
+    "moment_center_mean": 0.5009752666212123,
+    "moment_center_std": 0.28080195548955733,
+    "n_moments": 2803
+  },
+  "test": {
+    "count": 1542,
+    "vid_dur_mean": 149.56549935149158,
+    "vid_dur_std": 2.8713085550133695,
+    "vid_dur_min": 120,
+    "vid_dur_max": 150,
+    "query_len_mean": 10.509079118028534,
+    "moment_dur_mean": 0,
+    "moment_dur_std": 0,
+    "moment_center_mean": 0,
+    "moment_center_std": 0,
+    "n_moments": 0
+  }
+}

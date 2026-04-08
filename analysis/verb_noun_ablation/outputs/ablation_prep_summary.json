@@ -1,0 +1,10 @@
+{
+  "features_created": 8768,
+  "features_skipped": 0,
+  "verb_tokens_zeroed": 12405,
+  "noun_tokens_zeroed": 39548,
+  "verb_masked_dir": "/projectnb/cs585/projects/VMR/vmr_project/data/qvhighlights/txt_features/clip_text_verb_masked",
+  "noun_masked_dir": "/projectnb/cs585/projects/VMR/vmr_project/data/qvhighlights/txt_features/clip_text_noun_masked",
+  "mean_verbs_val": 1.33,
+  "mean_nouns_val": 3.75
+}
