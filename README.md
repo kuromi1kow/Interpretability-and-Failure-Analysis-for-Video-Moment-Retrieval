@@ -2,7 +2,7 @@
 
 **CS585: Image and Video Computing — Boston University**
 
-Team: Assylkhan Geniyat, Pablo Bello, Jaime Bernal, Zukhriddin Fakhriddinov, Aidan Perez
+Team: Assylkhan Geniyat, Zukhriddin Fakhriddinov, Aidan Perez, Pablo Bello, Jaime Bernal
 
 ## Overview
 
@@ -181,7 +181,7 @@ self.v_feat_dirs = [
 | Person | Primary Task | Secondary |
 |--------|-------------|-----------|
 | Assylkhan | Infrastructure, SCC setup, Lighthouse | Coordination |
+| Zukhriddin | Attention extraction, saliency viz, presentation | Erasure tests |
+| Aidan | Linguistic ablation (spaCy + re-encoding) | Verb/noun analysis |
 | Pablo | Data pipeline, feature verification | Bias analysis |
 | Jaime | Evaluation scripts, result tables | Report |
-| Zukhriddin | Attention extraction, saliency viz | Erasure tests |
-| Aidan | Linguistic ablation (spaCy + re-encoding) | Verb/noun analysis |
