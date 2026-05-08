@@ -12,8 +12,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[authoryear]{natbib}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
+% \usepackage{algorithm}      % unused
+% \usepackage{algpseudocode}  % unused
 \usepackage{tabularx}
 
 \hypersetup{
@@ -23,14 +23,14 @@
   urlcolor=blue!60!black,
 }
 
-\title{\textbf{Project Milestone 3: Interpretability and Failure Analysis for Video Moment Retrieval} \\ \textit{Temporal Sentence Grounding in Videos}}
+\title{\textbf{Project Milestone 4: Interpretability and Failure Analysis for Video Moment Retrieval} \\ \textit{Temporal Sentence Grounding in Videos}}
 
 \author{
   \begin{tabular}[t]{c}\textbf{Assylkhan Geniyat} \\ Boston University \\ \texttt{kuromiqo@bu.edu}\end{tabular} \and
-  \begin{tabular}[t]{c}\textbf{Pablo Bello} \\ Boston University \\ \texttt{pbello@bu.edu}\end{tabular} \and
-  \begin{tabular}[t]{c}\textbf{Jaime Bernal} \\ Boston University \\ \texttt{jaimebm@bu.edu}\end{tabular} \and
   \begin{tabular}[t]{c}\textbf{Zukhriddin Fakhriddinov} \\ Boston University \\ \texttt{zfmsai@bu.edu}\end{tabular} \and
-  \begin{tabular}[t]{c}\textbf{Aidan Perez} \\ Boston University \\ \texttt{aperez00@bu.edu}\end{tabular}
+  \begin{tabular}[t]{c}\textbf{Aidan Perez} \\ Boston University \\ \texttt{aperez00@bu.edu}\end{tabular} \and
+  \begin{tabular}[t]{c}\textbf{Pablo Bello} \\ Boston University \\ \texttt{pbello@bu.edu}\end{tabular} \and
+  \begin{tabular}[t]{c}\textbf{Jaime Bernal} \\ Boston University \\ \texttt{jaimebm@bu.edu}\end{tabular}
 }
 
 \date{}
@@ -40,7 +40,7 @@
 
 % ============================================================
 \begin{abstract}
-Video moment retrieval (VMR) requires localizing temporal segments in untrimmed videos given natural language queries. While recent DETR-style transformer models achieve strong performance, their internal mechanisms and failure modes remain poorly understood. We reproduce three baselines---Moment-DETR, QD-DETR, and CG-DETR---on the QVHighlights benchmark and conduct three interpretability analyses. First, we perform temporal bias analysis, showing that models achieve $7\times$ above trivial baselines but exhibit a dominant failure mode on short moments ($<$10s), where R1@0.5 drops by 13--15 points due to systematic length over-prediction. Second, we conduct verb vs.\ noun sensitivity ablation by zeroing POS-tagged token features, revealing that object nouns are $2.6\times$ more important than action verbs for grounding in QD-DETR. Third, we perform individual attention head ablation across all 32 heads, finding that no single head is specialized for boundary prediction---temporal grounding emerges as a distributed property of the full transformer. These findings identify concrete failure modes and suggest that improving short-moment handling and action-verb representations are the most promising directions for future work.
+Video moment retrieval (VMR) requires localizing temporal segments in untrimmed videos given natural language queries. While recent DETR-style transformer models achieve strong performance, their internal mechanisms and failure modes remain poorly understood. We reproduce three baselines---Moment-DETR, QD-DETR, and CG-DETR---on the QVHighlights benchmark and conduct three interpretability analyses. First, we perform temporal bias analysis, showing that models achieve $7\times$ above trivial baselines but exhibit a dominant failure mode on short moments ($<$10s), where R1@0.5 drops by roughly 12--16 points due to systematic length over-prediction. Second, we conduct verb vs.\ noun sensitivity ablation by zeroing POS-tagged token features, revealing that object nouns are $2.6\times$ more important than action verbs for grounding in QD-DETR. Third, we perform individual attention head ablation across all 32 heads, finding that no single head is specialized for boundary prediction---temporal grounding emerges as a distributed property of the full transformer. These findings identify concrete failure modes and suggest that improving short-moment handling and action-verb representations are the most promising directions for future work.
 \end{abstract}
 
 % ============================================================
@@ -153,7 +153,7 @@ The alignment between spaCy word-level tags and CLIP subword tokens requires car
 \subsection{Analysis 3: Attention Head Ablation}
 \label{sec:method_head}
 
-Inspired by mechanistic interpretability work in language models, we investigate whether specific attention heads are specialized for temporal boundary prediction.
+Inspired by prior attention-head analysis and pruning work in Transformer models \citep{voita2019analyzing,michel2019sixteen}, we investigate whether specific attention heads are specialized for temporal boundary prediction.
 
 QD-DETR contains 4 multi-head attention modules (2 text-to-video encoder layers + 2 main encoder layers), each with 8 heads, totaling 32 attention heads. For each head, we:
 
@@ -179,6 +179,7 @@ Table~\ref{tab:baselines} shows the performance of the three reproduced baseline
 \caption{Baseline performance on QVHighlights validation set. All models use CLIP+SlowFast visual features.}
 \label{tab:baselines}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lccccc@{}}
 \toprule
 \textbf{Model} & \textbf{R1@0.5} & \textbf{R1@0.7} & \textbf{mAP} & \textbf{HL-F} & \textbf{HL-G} \\
@@ -188,6 +189,7 @@ QD-DETR     & 62.06 & 45.48 & 40.56 & 74.14 & 63.30 \\
 CG-DETR     & \textbf{62.84} & \textbf{46.84} & \textbf{42.00} & \textbf{76.05} & \textbf{64.88} \\
 \bottomrule
 \end{tabular}
+}
 \vspace{-6pt}
 \end{table}
 
@@ -221,22 +223,24 @@ QD-DETR & \textbf{62.06} \\
 We observe a mild center bias: the mean predicted moment center is at normalized position 0.49, compared to 0.43 for the ground truth. However, this bias is modest and does not explain the models' strong performance.
 
 \paragraph{Length-bucketed analysis.}
-Table~\ref{tab:length} reveals a striking failure pattern. Short moments ($<$10s) suffer a 13--15 point R1@0.5 drop across all models. Critically, QD-DETR predicts a mean length of 32.0s for short moments whose actual mean length is only 4.6s---an over-prediction of nearly $7\times$.
+Table~\ref{tab:length} reveals a striking failure pattern. Short moments ($<$10s) suffer roughly 12--16 point R1@0.5 drops across all models. Critically, QD-DETR predicts a mean length of 32.0s for short moments whose actual mean length is only 4.6s---an over-prediction of nearly $7\times$.
 
 \begin{table}[t]
 \centering
 \caption{Performance by ground-truth moment length for QD-DETR. Short moments are the dominant failure mode.}
 \label{tab:length}
 \small
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lccc@{}}
 \toprule
 \textbf{Length} & \textbf{R1@0.5} & \textbf{Mean pred} & \textbf{Mean GT} \\
 \midrule
 Short ($<$10s) & 50.00 & 32.0s & 4.6s \\
-Medium (10--30s) & 64.68 & 30.0s & 17.8s \\
-Long (30--150s) & 62.98 & 56.9s & 65.2s \\
+Medium (10--30s) & 64.68 & 30.0s & 19.2s \\
+Long (30--150s) & 62.98 & 56.9s & 61.2s \\
 \bottomrule
 \end{tabular}
+}
 \vspace{-6pt}
 \end{table}
 
@@ -245,7 +249,7 @@ This suggests that the models have learned a prior toward medium-length predicti
 \subsection{Verb vs.\ Noun Sensitivity}
 \label{sec:vn_results}
 
-Across the validation set, queries contain on average 1.33 verbs and 3.75 nouns per query (12,405 verb tokens and 39,548 noun tokens total).
+Across the validation set, queries contain on average 1.33 verbs and 3.75 nouns per query (2,063 verb-tagged words and 5,805 noun/proper-noun words total). During feature preparation, this corresponded to zeroing 12,405 verb subword positions and 39,548 noun/proper-noun subword positions across the train and validation feature files.
 
 \begin{table}[t]
 \centering
@@ -285,18 +289,18 @@ Table~\ref{tab:heads} shows the top 5 most impactful heads when individually zer
 \texttt{encoder.layer0.head3} & $-$0.77 \\
 \texttt{t2v\_encoder.layer1.head2} & $-$0.39 \\
 \texttt{encoder.layer0.head1} & $-$0.32 \\
-\texttt{encoder.layer1.head5} & $-$0.26 \\
-\texttt{t2v\_encoder.layer0.head7} & $-$0.19 \\
+\texttt{encoder.layer1.head3} & $-$0.32 \\
+\texttt{t2v\_encoder.layer0.head0} & $-$0.13 \\
 \bottomrule
 \end{tabular}
 \vspace{-6pt}
 \end{table}
 
-The key finding is that the maximum single-head drop is only $-$0.77 R1@0.5 points (from a baseline of 61.29), representing just a 1.3\% relative decrease. The majority of heads produce drops below $-$0.3 points when removed.
+The key finding is that the maximum single-head drop is only $-$0.77 R1@0.5 points (from a baseline of 61.29), representing just a 1.3\% relative decrease. Only 4 of 32 heads reduce R1@0.5 by at least 0.3 points when removed, and several ablations slightly improve R1@0.5, indicating that no single head is critical on its own.
 
 Two patterns emerge from the ablation:
 \begin{enumerate}[nosep,leftmargin=*]
-  \item \textbf{Early layers are more sensitive.} The three most impactful heads are in layer 0 of the encoder and layer 1 of the text-to-video encoder, suggesting these early layers establish the initial cross-modal alignment that later layers refine.
+  \item \textbf{Ablation effects are small and uneven.} The largest negative effects appear in both main encoder and text-to-video encoder layers, suggesting that individual heads provide only weak, non-localized contributions to grounding.
   \item \textbf{Temporal grounding is distributed.} No single head acts as a ``boundary detector.'' The model's ability to predict temporal boundaries is an emergent property of the collective computation across all 32 heads, not localized in any specific component.
 \end{enumerate}
 
@@ -315,7 +319,7 @@ The temporal bias analysis reveals that the dominant failure mode is not distrib
 The $2.6\times$ greater importance of nouns over verbs suggests that these models primarily perform a form of ``object spotting''---they identify when queried objects appear in the video rather than understanding the actions being performed. This is consistent with CLIP's known strength at object recognition and relative weakness at action understanding. For datasets where queries primarily differ in which objects are mentioned, this strategy is effective. However, it represents a fundamental limitation for queries that require fine-grained action discrimination.
 
 \paragraph{Distributed computation.}
-The head ablation finding that no single head is specialized for boundary prediction aligns with recent observations in large language models that many capabilities emerge from distributed computation across multiple heads. This suggests that attempts to improve VMR through targeted architectural modifications may need to consider the full network rather than individual components.
+The head ablation finding that no single head is specialized for boundary prediction aligns with prior Transformer head-pruning studies, where many heads can be removed with limited performance loss \citep{voita2019analyzing,michel2019sixteen}. This suggests that attempts to improve VMR through targeted architectural modifications may need to consider the full network rather than individual components.
 
 \paragraph{Implications for future architectures.}
 These findings collectively suggest three design directions: (1) loss functions or training strategies that explicitly handle short moments, (2) video encoders with stronger action semantics beyond CLIP, and (3) architectures that allow more structured decomposition of the grounding task to enable targeted improvements.
