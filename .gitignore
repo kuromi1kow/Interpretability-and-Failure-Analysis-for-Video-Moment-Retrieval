@@ -60,3 +60,11 @@ node_modules/
 package.json
 package-lock.json
 slide-*.jpg
+tmp/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
